@@ -20,6 +20,8 @@ class create():
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text',cp.get('invebtory','warehouse'))
         sleep(2)
         base.class_name_click_number('android.widget.RelativeLayout',1)
+
+        
         base.driver.implicitly_wait(0)
         i=random.randint(0,10000)
         base.id_sendkey('com.facilityone.product.shang:id/et_shelves','货架信息'+str(i))
