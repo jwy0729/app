@@ -27,7 +27,7 @@ class StorageIn():
         base.driver.implicitly_wait(300)
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text',material)
         base.driver.implicitly_wait(0)
-        base.id_click_number('com.facilityone.product.shang:id/report_select_item_rl', 1)
+        base.class_name_click_number('android.widget.RelativeLayout',1)
         base.id_click('com.facilityone.product.shang:id/ll_root')
         base.id_click('com.facilityone.product.shang:id/material_add_batch')
         base.name_sendkey('请输入供应商名称','供应商'+str(i))
