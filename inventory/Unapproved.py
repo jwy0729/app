@@ -1,20 +1,22 @@
 import random
 import configparser
 from time import sleep
-from ReturnPage import returnpage
+from ReturnPage import Returnpage
 class Unapproved():
-    returnpage=returnpage()
+    returnpage=Returnpage()
     i=random.randint(0,10000)
+    def __init__(self):
+        pass
     def unapproved(self,base,no):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         try:
             base.name_click(u'库存审核')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'库存')
                 base.name_click(u'库存审核')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'库存')
                 base.name_click(u'库存审核')

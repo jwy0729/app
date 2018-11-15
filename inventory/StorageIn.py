@@ -2,16 +2,18 @@ import random
 import configparser
 from time import sleep
 class StorageIn():
+    def __init__(self):
+        pass
     def storageIn(self,base,material):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         try:
             base.name_click(u'入库')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'库存')
                 base.name_click(u'入库')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'库存')
                 base.name_click(u'入库')
@@ -20,7 +22,8 @@ class StorageIn():
         base.driver.implicitly_wait(300)
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text', cp.get('invebtory', 'warehouse'))
         sleep(2)
-        base.class_name_click_number('android.widget.RelativeLayout', 1)
+        l = len(base.driver.find_elements_by_class_name('android.widget.RelativeLayout'))
+        base.class_name_click_number('android.widget.RelativeLayout', int(int(l) - 1))
         base.driver.implicitly_wait(0)
         i=random.randint(0,10000)
         base.id_sendkey('com.facilityone.product.shang:id/multi_input_content_et','描述'+str(i))

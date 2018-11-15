@@ -2,16 +2,18 @@ from time import sleep
 import configparser
 import random
 class archive():
+    def __init__(self):
+        pass
     def archive(self,base,no):
         cp=configparser.SafeConfigParser()
         cp.read('base.ini',encoding='utf-8')
         try:
             base.name_click(u'待存档工单')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'工单')
                 base.name_click(u'待存档工单')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'工单')
                 base.name_click(u'待存档工单')

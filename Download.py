@@ -1,10 +1,9 @@
 from appium import webdriver
-from base import base
 class download():
     def download(self,base):
         try:
            base.name_click(u'我的')
-        except:
+        except BaseException:
             print('当前页面就是“我的”页面')
         # 是否存在离线数据没有判断，
         base.name_click(u'离线下载')

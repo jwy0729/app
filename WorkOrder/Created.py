@@ -1,20 +1,21 @@
 from appium import webdriver
-from base import base
 from time import sleep
 import configparser
 import random
 
 class created():
+    def __init__(self):
+        pass
     def created(self,base):
         cp=configparser.SafeConfigParser()
         cp.read('base.ini',encoding='utf-8')
         try:
             base.name_click(u'创建工单')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'工单')
                 base.name_click(u'创建工单')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'工单')
                 base.name_click(u'创建工单')
@@ -28,21 +29,21 @@ class created():
         base.id_click('com.facilityone.product.shang:id/report_select_item_rl')
         try:
             base.name_click('确定')
-        except:
+        except BaseException:
             print('只有一级部门')
         base.id_click('com.facilityone.product.shang:id/report_position_ll')
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text',cp.get('workorder', 'location'))
         base.id_click('com.facilityone.product.shang:id/report_select_item_rl')
         try:
             base.name_click('确定')
-        except:
+        except BaseException:
             print('只有一级位置')
         base.id_click('com.facilityone.product.shang:id/report_service_type_ll')
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text', cp.get('workorder','type'))
         base.id_click('com.facilityone.product.shang:id/report_select_item_rl')
         try:
             base.name_click('确定')
-        except:
+        except BaseException:
             print('只有一级服务类型')
         base.id_click('com.facilityone.product.shang:id/report_priority_ll')
         base.id_click('com.facilityone.product.shang:id/report_select_item_rl')

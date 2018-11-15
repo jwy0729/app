@@ -5,7 +5,6 @@ import configparser
 
 from selenium.webdriver.support.wait import WebDriverWait
 
-from base import base
 class login():
     def login(cls,base):
          deivice_cs={}
@@ -50,7 +49,7 @@ class login():
            base.id_click('com.facilityone.product.shang:id/login_login_btn')
            a="第一次登陆"
            return a
-        except:
+        except BaseException:
             print('不是安装后第一次登陆')
         sleep(2)
         try:

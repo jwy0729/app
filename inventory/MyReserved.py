@@ -1,19 +1,21 @@
 import random
 import configparser
 from time import sleep
-from ReturnPage import returnpage
+from ReturnPage import Returnpage
 class MyReserved():
-    returnpage=returnpage()
+    returnpage=Returnpage()
+    def __init__(self):
+        pass
     def MyReserved(self,base):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         try:
             base.name_click(u'我的预定')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'库存')
                 base.name_click(u'我的预定')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'库存')
                 base.name_click(u'我的预定')

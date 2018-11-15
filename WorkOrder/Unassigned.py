@@ -1,19 +1,18 @@
 from time import sleep
 import configparser
 import random
-
 from selenium.webdriver.support.wait import WebDriverWait
-
-
 class assigned():
+    def __init__(self):
+        pass
     def assigned(self,base,inf):
         try:
             base.name_click(u'待派工工单')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'工单')
                 base.name_click(u'待派工工单')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'工单')
                 base.name_click(u'待派工工单')
@@ -31,7 +30,7 @@ class assigned():
         cp.read('base.ini', encoding='utf-8')
         try:
             base.name_click('派工')
-        except:
+        except BaseException:
             base.driver.implicitly_wait(300)
             base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
             base.driver.implicitly_wait(0)
@@ -56,7 +55,7 @@ class assigned():
         sleep(3)
         try:
             base.name_click('终止')
-        except:
+        except BaseException:
             base.driver.implicitly_wait(300)
             base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
             base.driver.implicitly_wait(0)
@@ -71,7 +70,7 @@ class assigned():
         cp.read('base.ini', encoding='utf-8')
         try:
             base.name_click('审批申请')
-        except:
+        except BaseException:
             base.driver.implicitly_wait(300)
             base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
             base.driver.implicitly_wait(0)

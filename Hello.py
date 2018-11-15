@@ -1,10 +1,10 @@
 from Login import login
 from time import sleep
 from Project import project
-from base import base
+from base import Base
 from Download import download
 from WorkOrder.Created import created
-from ReturnPage import returnpage
+from ReturnPage import Returnpage
 from WorkOrder.Uncompleted import uncompleted
 from WorkOrder.Unapproved import unapproved
 from WorkOrder.Unassigned import assigned
@@ -18,7 +18,7 @@ from inventory.StorageOut import StorageOut
 from inventory.StorageMove import StorageMove
 from inventory.StorageCheck import StorageCheck
 login=login()
-base=base()
+base=Base()
 login.login(base)
 a=login.login1(base)
 sleep(2)
@@ -43,7 +43,7 @@ dow.download(base)
 # evaluated.unevaluated(base,no)
 # history=history()
 # history.history(base,no)
-# returnpage=returnpage()
+# returnpage=Returnpage()
 # returnpage.returnpage(base)
 # 工单
 # 创建工单
@@ -140,9 +140,9 @@ dow.download(base)
 
 
 # 创建物资
-# create1=create()
-# material=create1.create(base)
-material='物资5930'
+create1=create()
+material=create1.create(base)
+# material='物资5930'
 # 入库
 # IN=StorageIn()
 # IN.storageIn(base,material)

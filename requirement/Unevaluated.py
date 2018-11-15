@@ -1,17 +1,18 @@
 from appium import webdriver
-from base import base
 from time import sleep
 import configparser
 
 class unevaluated():
+    def __init__(self):
+        pass
     def unevaluated(self,base,no):
         try:
             base.name_click(u'待评价需求')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'服务台')
                 base.name_click(u'待评价需求')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'服务台')
                 base.name_click(u'待评价需求')

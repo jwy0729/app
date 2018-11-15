@@ -1,20 +1,22 @@
 from DropDown import DropDown
 import random
 import configparser
-from ReturnPage import returnpage
+from ReturnPage import Returnpage
 from time import sleep
 class StorageOut():
     DropDown=DropDown()
-    returnpage=returnpage()
+    returnpage=Returnpage()
     i=random.randint(0,10000)
+    def __init__(self):
+        pass
     def StorageOut(self,base):
         try:
             base.name_click(u'出库')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'库存')
                 base.name_click(u'出库')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'库存')
                 base.name_click(u'出库')
@@ -25,14 +27,14 @@ class StorageOut():
         cp.read('base.ini', encoding='utf-8')
         try:
             base.name_click(no)
-        except:
+        except BaseException:
             for StorageOut.i in range(10000):
               n=1
               StorageOut.DropDown.dropDown(base)
               try:
                   base.name_click(no)
                   break
-              except:
+              except BaseException:
                   n=n+1
         StorageOut.DropDown.dropDown(base)
         base.name_click('请选择领用人')
@@ -77,7 +79,8 @@ class StorageOut():
         base.driver.implicitly_wait(300)
         base.name_click('点击选择主管')
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text', cp.get('login', 'realname'))
-        base.class_name_click_number('android.widget.RelativeLayout', 1)
+        l = len(base.driver.find_elements_by_class_name('android.widget.RelativeLayout'))
+        base.class_name_click_number('android.widget.RelativeLayout', int(int(l) - 1))
         base.driver.implicitly_wait(0)
         sleep(2)
         base.driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/cn.bingoogolapple.swipebacklayout.BGASwipeBackLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]').click()

@@ -1,17 +1,19 @@
 from DropDown import DropDown
-from ReturnPage import returnpage
+from ReturnPage import Returnpage
 import random
 import configparser
 from time import sleep
 class Asset():
     DropDown = DropDown()
-    ReturnPage=returnpage()
+    ReturnPage=Returnpage()
     cp = configparser.SafeConfigParser()
     cp.read('base.ini', encoding='utf-8')
+    def __init__(self):
+        pass
     def Asset(self,base):
         try:
             base.name_click(u'资产')
-        except:
+        except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'资产')
         DropDown.dropDown(base)

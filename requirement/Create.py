@@ -1,21 +1,22 @@
 import random
 from time import sleep
 from appium import webdriver
-from base import base
 import datetime
-from requirement.information import information
+from requirement.information import Information
 import configparser
 class create():
+    def __init__(self):
+        pass
     def create(self,base):
         cp=configparser.SafeConfigParser()
         cp.read('base.ini',encoding='utf-8')
         try:
             base.name_click(u'创建新需求')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'服务台')
                 base.name_click(u'创建新需求')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'服务台')
                 base.name_click(u'创建新需求')
@@ -38,7 +39,7 @@ class create():
         try:
             base.name_click('确定')
             print(12)
-        except:
+        except BaseException:
             print('无子集')
         sleep(1)
         base.name_sendkey('请输入需求描述','测试'+str(i))
@@ -46,7 +47,7 @@ class create():
         print(des)
         base.name_click(u'提交')
         createtime=datetime.datetime.now().strftime('M-D h:m')
-        inf=information()
+        inf=Information()
         inf.setdes(des)
         inf.setname(name)
         inf.setCreateTime(createtime)

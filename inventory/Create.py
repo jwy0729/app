@@ -4,16 +4,18 @@ from time import sleep
 from DropDown import DropDown
 class create():
     DropDown=DropDown()
+    def __init__(self):
+        pass
     def create(self,base):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         try:
             base.name_click(u'新建物资')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'库存')
                 base.name_click(u'新建物资')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'库存')
                 base.name_click(u'新建物资')
@@ -21,7 +23,8 @@ class create():
         base.driver.implicitly_wait(300)
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text',cp.get('invebtory','warehouse'))
         sleep(2)
-        base.class_name_click_number('android.widget.RelativeLayout',1)
+        l=len(base.driver.find_elements_by_class_name('android.widget.RelativeLayout'))
+        base.class_name_click_number('android.widget.RelativeLayout',int(int(l)-1))
         base.driver.implicitly_wait(0)
         i=random.randint(0,10000)
         base.id_sendkey('com.facilityone.product.shang:id/et_shelves','货架信息'+str(i))

@@ -1,5 +1,4 @@
 from appium import webdriver
-from base import base
 from time import sleep
 import configparser
 class project():

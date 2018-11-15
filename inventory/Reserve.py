@@ -4,16 +4,18 @@ import configparser
 from time import sleep
 class Reserve():
     DropDown = DropDown()
+    def __init__(self):
+        pass
     def reserve(self,base,material):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         try:
             base.name_click(u'物资预定')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'库存')
                 base.name_click(u'物资预定')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'库存')
                 base.name_click(u'物资预定')
@@ -30,7 +32,8 @@ class Reserve():
         base.id_click('com.facilityone.product.shang:id/et_supervisor_add_store_name')
         base.driver.implicitly_wait(300)
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text',cp.get('login','realname'))
-        base.class_name_click_number('android.widget.RelativeLayout',1)
+        l=len(base.driver.find_elements_by_class_name('android.widget.RelativeLayout'))
+        base.class_name_click_number('android.widget.RelativeLayout',int(int(l)-1))
         base.driver.implicitly_wait(0)
         sleep(2)
         base.driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/cn.bingoogolapple.swipebacklayout.BGASwipeBackLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout').click()

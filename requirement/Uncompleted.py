@@ -1,18 +1,19 @@
 from appium import webdriver
-from base import base
 from time import sleep
 import random
 import configparser
 
 class uncompleted():
+    def __init__(self):
+        pass
     def uncompleted(self,base,inf):
         try:
             base.name_click(u'待处理需求')
-        except:
+        except BaseException:
             try:
                 base.name_click(u'服务台')
                 base.name_click(u'待处理需求')
-            except:
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'服务台')
                 base.name_click(u'待处理需求')
@@ -37,7 +38,7 @@ class uncompleted():
         try:
             base.name_click(u'确定')
             print(12)
-        except:
+        except BaseException:
             print('无子集')
         base.id_click('com.facilityone.product.shang:id/report_priority_ll')
         base.class_name_click_number('android.widget.RelativeLayout',1)
