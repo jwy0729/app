@@ -16,7 +16,7 @@ class login():
          deivice_cs['appActivity'] = 'com.facilityone.wireless.a.business.others.WelcomeActivity'
          deivice_cs['unicodeKeyboard'] = 'True'
          deivice_cs['resetKeyboard'] = 'True'
-         sleep(1)
+         sleep(2)
          base.start('http://localhost:4723/wd/hub', deivice_cs)
 
     def login1(self,base):

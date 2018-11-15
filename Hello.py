@@ -15,10 +15,13 @@ from inventory.StorageIn import StorageIn
 from inventory.MyReserved import MyReserved
 from inventory.Unapproved import Unapproved
 from inventory.StorageOut import StorageOut
+from inventory.StorageMove import StorageMove
+from inventory.StorageCheck import StorageCheck
 login=login()
 base=base()
 login.login(base)
 a=login.login1(base)
+sleep(2)
 if a=="第一次登陆":
    project=project()
    project.project(base)
@@ -137,23 +140,35 @@ dow.download(base)
 
 
 # 创建物资
-create1=create()
-material=create1.create(base)
+# create1=create()
+# material=create1.create(base)
+material='物资5930'
 # 入库
-IN=StorageIn()
-IN.storageIn(base,material)
+# IN=StorageIn()
+# IN.storageIn(base,material)
 # 物资预定
-Reserve=Reserve()
-Reserve.reserve(base,material)
+# Reserve=Reserve()
+# Reserve.reserve(base,material)
 # 我的预定
-MyReserved=MyReserved()
-materialNo=MyReserved.MyReserved(base)
+# MyReserved=MyReserved()
+# materialNo=MyReserved.MyReserved(base)
+materialNo='MB1518090052'
 # 物资审核(通过)
-Unapproved=Unapproved()
-Unapproved.unapproved(base,materialNo)
-Unapproved.Pass(base)
+# Unapproved=Unapproved()
+# Unapproved.unapproved(base,materialNo)
+# Unapproved.Pass(base)
 # 预定出库
 StorageOut=StorageOut()
-StorageOut.StorageOut(base)
-StorageOut.reserved(base,materialNo)
-
+# StorageOut.StorageOut(base)
+# StorageOut.reserved(base,materialNo)
+# StorageOut.delivery(base)
+# 直接出库
+# StorageOut.StorageOut(base)
+# StorageOut.direct(base,material)
+# 移库
+StorageMove=StorageMove()
+StorageMove.StorageMove(base,material)
+# 盘点
+StorageCheck=StorageCheck()
+StorageCheck.StorageCheck(base,material)
+StorageOut.returnpage.returnpage(base)

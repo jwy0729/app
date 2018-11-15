@@ -1,7 +1,9 @@
 import random
 import configparser
 from time import sleep
+from ReturnPage import returnpage
 class Unapproved():
+    returnpage=returnpage()
     i=random.randint(0,10000)
     def unapproved(self,base,no):
         cp = configparser.SafeConfigParser()
@@ -23,6 +25,9 @@ class Unapproved():
     def Pass(self,base):
         base.id_sendkey('com.facilityone.product.shang:id/adjust_inventory_batch_num_et','通过'+str(Unapproved.i))
         base.name_click('通过')
+        Unapproved.returnpage.returnpage(base)
     def Reject(self,base):
         base.id_sendkey('com.facilityone.product.shang:id/adjust_inventory_batch_num_et', '不通过' + str(Unapproved.i))
         base.name_click('不通过')
+        Unapproved.returnpage.returnpage(base)
+

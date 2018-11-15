@@ -2,7 +2,6 @@ from appium import webdriver
 class base():
     def start(self,url,dervice):
         self.driver=webdriver.Remote(url,dervice)
-
     def class_name_click(self,loc):
         self.driver.find_element_by_class_name(loc).click()
     def id_click(self,loc):
@@ -50,5 +49,5 @@ class base():
     def class_name_sendkey_number(self,loc,number,key):
         self.driver.find_elements_by_class_name(loc)[int(number)].send_keys(key)
     def id_text_number(self,loc,number):
-        self.driver.find_element_by_id(loc)[str(number)].text
+        self.driver.find_element_by_id(loc)[int(number)].text
 
