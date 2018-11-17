@@ -1,5 +1,5 @@
 class WipeUp():
-    def WipeUp(self,base):
+    def wipeUp(self,base):
         try:
             view = base.driver.find_element_by_id('com.facilityone.product.shang:id/sv_root').size
         except Exception:

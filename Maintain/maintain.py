@@ -38,5 +38,5 @@ class maintain():
         maintain.DropDown.dropDown(base)
         maintain.ReturnPage.returnpage(base)
         sleep(1)
-        WipeUp.WipeUp(base)
+        WipeUp.wipeUp(base)
         maintain.ReturnPage.returnpage(base)

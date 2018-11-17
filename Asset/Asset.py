@@ -10,14 +10,14 @@ class Asset():
     cp.read('base.ini', encoding='utf-8')
     def __init__(self):
         pass
-    def Asset(self,base):
+    def asset(self,base):
         try:
             base.name_click(u'资产')
         except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'资产')
         DropDown.dropDown(base)
-    def RIssue(self,base):
+    def rissue(self,base):
         base.id_click('com.facilityone.product.shang:id/ll')
         base.class_name_click_number('android.widget.TextView',2)
         phone=base.id_text('com.facilityone.product.shang:id/edit_item_content_et')
