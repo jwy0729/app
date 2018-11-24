@@ -5,6 +5,10 @@ from ReturnPage import Returnpage
 import datetime
 import random
 import configparser
+
+from base import base
+
+
 class Create():
     cp=configparser.SafeConfigParser()
     cp.read('base.ini',encoding='utf-8')
@@ -12,7 +16,7 @@ class Create():
     Returnpage=Returnpage()
     def __init__(self):
         pass
-    def create(self,base):
+    def create(self):
         try:
             base.name_click(u'访客登记')
         except BaseException:
@@ -36,19 +40,6 @@ class Create():
         time=datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
         base.name_click('提交')
         return time
-    def query(self,base,time):
-        try:
-            base.name_click(u'访客记录')
-        except BaseException:
-            try:
-                base.name_click(u'访客管理')
-                base.name_click(u'访客记录')
-            except BaseException:
-                base.name_click(u'工作')
-                base.name_click(u'访客管理')
-                base.name_click(u'访客记录')
-        base.name_click(time)
-        Returnpage.returnpage(base)
-        Returnpage.returnpage(base)
+
 
 

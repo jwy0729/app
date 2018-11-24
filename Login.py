@@ -5,8 +5,11 @@ import configparser
 
 from selenium.webdriver.support.wait import WebDriverWait
 
+from base import base
+
+
 class login():
-    def login(cls,base):
+    def login(cls):
          deivice_cs={}
          deivice_cs['platformName'] = 'Android'
          deivice_cs['platformVersion'] = '6.0'
@@ -18,7 +21,7 @@ class login():
          sleep(2)
          base.start('http://localhost:4723/wd/hub', deivice_cs)
 
-    def login1(self,base):
+    def login1(self):
         sleep(12)
         cp=configparser.SafeConfigParser()
         cp.read('base.ini',encoding='utf-8')

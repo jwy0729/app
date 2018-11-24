@@ -1,10 +1,12 @@
 from Affiche.Affiche import Affiche
 from ReturnPage import Returnpage
-from base import Base
+from base import base
 class AfficheMenu():
-    affiche=Affiche()
-    title=affiche.Unread(Base)
-    affiche.Read(Base,title)
-    Returnpage=Returnpage()
-    Returnpage.returnpage(Base)
+    Returnpage = Returnpage()
+    Affiche=Affiche()
+    def __init__(self):
+        affiche=AfficheMenu.Affiche()
+        title=affiche.Unread()
+        affiche.Read(title)
+        AfficheMenu.Returnpage.returnpage()
 

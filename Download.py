@@ -1,6 +1,10 @@
 from appium import webdriver
+
+from base import base
+
+
 class download():
-    def download(self,base):
+    def download(self):
         try:
            base.name_click(u'我的')
         except BaseException:

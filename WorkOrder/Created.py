@@ -3,12 +3,13 @@ from time import sleep
 import configparser
 import random
 
+from base import base
+
+
 class created():
     def __init__(self):
         pass
-    def created(self,base):
-        cp=configparser.SafeConfigParser()
-        cp.read('base.ini',encoding='utf-8')
+    def created(self):
         try:
             base.name_click(u'创建工单')
         except BaseException:
@@ -20,6 +21,9 @@ class created():
                 base.name_click(u'工单')
                 base.name_click(u'创建工单')
         sleep(2)
+    def create(self,source):
+        cp = configparser.SafeConfigParser()
+        cp.read('base.ini', encoding='utf-8')
         phone=base.id_text('com.facilityone.product.shang:id/edit_item_content_et')
         if phone==""or phone is None:
             base.id_sendkey('com.facilityone.product.shang:id/edit_item_content_et','15042540563')
@@ -33,11 +37,12 @@ class created():
             print('只有一级部门')
         base.id_click('com.facilityone.product.shang:id/report_position_ll')
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text',cp.get('workorder', 'location'))
-        base.id_click('com.facilityone.product.shang:id/report_select_item_rl')
-        try:
-            base.name_click('确定')
-        except BaseException:
-            print('只有一级位置')
+        if source=='工单':
+            base.id_click('com.facilityone.product.shang:id/report_select_item_rl')
+            try:
+                base.name_click('确定')
+            except BaseException:
+                print('只有一级位置')
         base.id_click('com.facilityone.product.shang:id/report_service_type_ll')
         base.id_sendkey('com.facilityone.product.shang:id/search_edit_text', cp.get('workorder','type'))
         base.id_click('com.facilityone.product.shang:id/report_select_item_rl')
@@ -51,4 +56,5 @@ class created():
         i=random.randint(0,1000)
         base.name_sendkey('请输入内容','测试描述'+str(i))
         base.name_click('提交')
-        return '测试描述'+str(i)
+        if source=='工单':
+           return '测试描述'+str(i)

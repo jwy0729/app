@@ -1,6 +1,7 @@
 from appium import webdriver
 from time import sleep
 from DropDown import DropDown
+from base import base
 import configparser
 class Energy():
     cp=configparser.SafeConfigParser()
@@ -8,13 +9,13 @@ class Energy():
     DropDown=DropDown()
     def __init__(self):
         pass
-    def energy(self,base):
+    def energy(self):
         try:
             base.name_click(u'能源管理')
         except BaseException:
             base.name_click(u'工作')
             base.name_click(u'能源管理')
-    def content(self,base):
+    def content(self):
         sleep(2)
         base.class_name_click(Energy.cp.get('energy','energy'))
         len(base.class_name('android.widget.LinearLayout'))
@@ -24,27 +25,28 @@ class Energy():
                base.class_name_click_number('android.widget.LinearLayout',int(i))
                base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et',i)
                base.name_click('保存')
+               i = i + 1
+               sleep(3)
             except BaseException:
-                DropDown.dropDown(base)
+                DropDown.dropDown()
                 base.class_name_click_number('android.widget.LinearLayout', int(i))
                 base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et', i)
                 base.name_click('保存')
-            i=i+1
         base.class_name_click_number('android.widget.LinearLayout',3)
-    def change(self,base):
+    def change(self):
         sleep(2)
         base.class_name_click(Energy.cp.get('energy', 'energy'))
-        len(base.class_name('android.widget.LinearLayout'))
+        l=len(base.driver.find_elements_by_class_name('android.widget.LinearLayout'))
         i = 1
-        for i in range(len):
+        for i in range(int(l)+2):
             try:
-                base.class_name_click_number('android.widget.LinearLayout', int(i))
+                base.class_name_click_number('android.widget.LinearLayout', i)
                 base.id_click('com.facilityone.product.shang:id/energy_write_change_sb')
                 base.id_click('com.facilityone.product.shang:id/confirm_button')
                 base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et', i)
                 base.name_click('保存')
             except BaseException:
-                DropDown.dropDown(base)
+                DropDown.dropDown()
                 base.class_name_click_number('android.widget.LinearLayout', int(i))
                 base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et', i)
                 base.id_sendkey('com.facilityone.product.shang:id/energy_change_meter_multi_et',2)

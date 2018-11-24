@@ -2,11 +2,15 @@ from DropDown import DropDown
 import random
 import configparser
 from time import sleep
+
+from base import base
+
+
 class StorageMove():
     DropDown = DropDown()
     def __init__(self):
         pass
-    def StorageMove(self,base,material):
+    def StorageMove(self,material):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         try:
@@ -42,7 +46,7 @@ class StorageMove():
         sleep(2)
         base.driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/cn.bingoogolapple.swipebacklayout.BGASwipeBackLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout').click()
         base.driver.implicitly_wait(0)
-        StorageMove.DropDown.dropDown(base)
+        StorageMove.DropDown.dropDown()
         base.id_click('com.facilityone.product.shang:id/ll_root')
         sleep(2)
         base.driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/cn.bingoogolapple.swipebacklayout.BGASwipeBackLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.ListView/android.widget.FrameLayout[1]/android.widget.LinearLayout').click()

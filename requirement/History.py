@@ -1,8 +1,12 @@
 from time import sleep
+
+from base import base
+
+
 class history():
     def __init__(self):
         pass
-    def history(self,base,no):
+    def history(self,no):
         try:
             base.name_click(u'需求查询')
         except BaseException:

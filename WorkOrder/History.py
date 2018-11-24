@@ -1,9 +1,13 @@
 from time import sleep
 import configparser
+
+from base import base
+
+
 class history():
     def __init__(self):
         pass
-    def history(self,base,no):
+    def history(self,no):
         cp=configparser.SafeConfigParser()
         cp.read('base.ini',encoding='utf-8')
         try:

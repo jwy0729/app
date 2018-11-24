@@ -3,6 +3,10 @@ import random
 import configparser
 from ReturnPage import Returnpage
 from time import sleep
+
+from base import base
+
+
 class StorageOut():
     DropDown=DropDown()
     returnpage=Returnpage()
@@ -61,7 +65,7 @@ class StorageOut():
         base.name_click('取消出库')
         StorageOut.returnpage.returnpage(base)
     # 直接出库
-    def direct(self,base,material):
+    def direct(self,material):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         base.name_click('直接出库')
@@ -89,9 +93,9 @@ class StorageOut():
         sleep(2)
         base.driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/cn.bingoogolapple.swipebacklayout.BGASwipeBackLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout').click()
         base.driver.implicitly_wait(0)
-        StorageOut.DropDown.dropDown(base)
+        StorageOut.DropDown.dropDown()
         base.id_click('com.facilityone.product.shang:id/ll_root')
-        StorageOut.DropDown.dropDown(base)
+        StorageOut.DropDown.dropDown()
         sleep(2)
         base.driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/cn.bingoogolapple.swipebacklayout.BGASwipeBackLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.ListView/android.widget.FrameLayout[1]/android.widget.LinearLayout').click()
         sleep(2)
@@ -99,4 +103,4 @@ class StorageOut():
         base.id_click('com.facilityone.product.shang:id/inventory_operate_btn')
         base.name_click('确定')
         base.name_click('出库')
-        StorageOut.returnpage.returnpage(base)
+        StorageOut.returnpage.returnpage()

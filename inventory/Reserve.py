@@ -2,11 +2,15 @@ from DropDown import DropDown
 import random
 import configparser
 from time import sleep
+
+from base import base
+
+
 class Reserve():
     DropDown = DropDown()
     def __init__(self):
         pass
-    def reserve(self,base,material):
+    def reserve(self,material):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         try:
@@ -45,7 +49,7 @@ class Reserve():
         base.driver.implicitly_wait(0)
         sleep(2)
         base.driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/cn.bingoogolapple.swipebacklayout.BGASwipeBackLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[1]').click()
-        Reserve.DropDown.dropDown(base)
+        Reserve.DropDown.dropDown()
         base.id_sendkey('com.facilityone.product.shang:id/et_materials_book_number',1)
 
         base.name_click('添加')

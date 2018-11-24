@@ -1,9 +1,15 @@
 from time import sleep
 import configparser
-class inspectiontask():
+from base import base
+from DropDown import DropDown
+from ReturnPage import Returnpage
+
+class InspectionTask():
+    DropDown =DropDown()
+    Returnpage=Returnpage()
     def __init__(self):
         pass
-    def inspectiontask(self,base):
+    def inspectionTask(self):
         cp=configparser.SafeConfigParser()
         cp.read('base.ini',encoding='utf-8')
         try:
@@ -16,6 +22,39 @@ class inspectiontask():
                 base.name_click(u'工作')
                 base.name_click(u'巡检')
                 base.name_click(u'巡检任务')
+        sleep(5)
+        i=1
+        for i in range(1000):
+           try:
+               base.name_click(cp.get('patrol','patrolname'))
+               break
+           except BaseException:
+               InspectionTask.DropDown.dropDown()
+               i=i+1
+        n=1
         sleep(2)
-        base.name_click(cp.get('patrol','patrolname'))
-        
+        l=len(base.driver.find_elements_by_class_name('android.widget.RelativeLayout'))
+        for n in range(int(l)+2):
+            base.class_name_click_number('android.widget.RelativeLayout',n)
+            l1=len(base.driver.find_elements_by_class_name('android.widget.ListView'))
+            j=1
+            for j in range(int(l1)+2):
+                try:
+                    base.class_name_click_number('android.widget.RelativeLayout',j)
+                    InspectionTask.DropDown.dropDown()
+                    sleep(2)
+                    InspectionTask.Returnpage.returnpage()
+                except BaseException:
+                    InspectionTask.DropDown.dropDown()
+                j=j+1
+            InspectionTask.Returnpage.returnpage()
+            base.id_click('com.facilityone.product.shang:id/patrol_spot_sync_tv')
+            sleep(3)
+            base.name_click('提交')
+            try:
+                base.id_click('com.facilityone.product.shang:id/confirm_button')
+            except BaseException:
+                print('没有未做项')
+            InspectionTask.Returnpage.returnpage()
+
+

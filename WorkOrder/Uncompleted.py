@@ -2,10 +2,13 @@ from time import sleep
 import configparser
 import random
 
+from base import base
+
+
 class uncompleted():
     def __init__(self):
         pass
-    def uncompleted(self,base,no):
+    def uncompleted(self,no):
         cp=configparser.SafeConfigParser()
         cp.read('base.ini',encoding='utf-8')
         sleep(1)
@@ -21,17 +24,17 @@ class uncompleted():
                 base.name_click(u'待处理工单')
         sleep(2)
         base.name_click(no)
-    def receive(self,base):
+    def receive(self):
         base.driver.implicitly_wait(300)
         base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
         base.driver.implicitly_wait(0)
         base.name_click('接单')
-    def completed(self,base):
+    def completed(self):
         base.driver.implicitly_wait(300)
         base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
         base.driver.implicitly_wait(0)
         base.name_click('处理完成')
-    def pausecon(self,base):
+    def pausecon(self):
         sleep(3)
         i = random.randint(0, 1000)
         try:
@@ -43,13 +46,13 @@ class uncompleted():
             base.name_click('暂停')
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et','暂停继续'+str(i))
         base.name_click('继续工作')
-    def con(self,base):
+    def con(self):
         sleep(3)
         base.driver.implicitly_wait(300)
         base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
         base.driver.implicitly_wait(0)
         base.name_click('继续工作')
-    def pausenotcon(self,base):
+    def pausenotcon(self):
         sleep(3)
         i = random.randint(0, 1000)
         try:
@@ -61,7 +64,7 @@ class uncompleted():
             base.name_click('暂停')
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et','暂停不继续'+str(i))
         base.name_click('不继续工作')
-    def stop(self,base):
+    def stop(self):
         sleep(3)
         try:
             base.name_click('终止')
@@ -73,7 +76,7 @@ class uncompleted():
         i = random.randint(0, 1000)
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et','终止原因'+str(i))
         base.name_click('终止')
-    def Return(self,base):
+    def Return(self):
         sleep(3)
         try:
             base.name_click('退单')
@@ -86,7 +89,7 @@ class uncompleted():
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et', '退单原因' +str(i))
         sleep(1)
         base.id_click('com.facilityone.product.shang:id/work_order_verify_sure_btn')
-    def apply(self,base):
+    def apply(self):
         sleep(3)
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')

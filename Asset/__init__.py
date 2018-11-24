@@ -1,10 +1,13 @@
 from Asset.Asset import Asset
 from ReturnPage import Returnpage
-from base import Base
+from base import base
 
 class AssetMenu():
-    Asset=Asset()
-    Asset.asset(Base)
-    Asset.rissue(Base)
-    Returnpage=Returnpage()
-    Returnpage.returnpage(Base)
+    Asset = Asset()
+    Returnpage = Returnpage()
+    def __init__(self):
+        AssetMenu.Asset.asset()
+        AssetMenu.Asset.rissue()
+        AssetMenu.Returnpage.returnpage()
+
+

@@ -2,11 +2,15 @@ from DropDown import DropDown
 import random
 import configparser
 from time import sleep
+
+from base import base
+
+
 class StorageCheck():
     DropDown = DropDown()
     def __init__(self):
         pass
-    def StorageCheck(self,base,material):
+    def StorageCheck(self,material):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         try:
@@ -33,7 +37,7 @@ class StorageCheck():
         base.driver.implicitly_wait(0)
         base.id_click('com.facilityone.product.shang:id/ll_root')
         sleep(2)
-        StorageCheck.DropDown.dropDown(base)
+        StorageCheck.DropDown.dropDown()
         sleep(2)
         base.driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/cn.bingoogolapple.swipebacklayout.BGASwipeBackLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.ListView/android.widget.FrameLayout[1]/android.widget.LinearLayout').click()
         sleep(2)
@@ -41,4 +45,4 @@ class StorageCheck():
         base.id_click('com.facilityone.product.shang:id/inventory_operate_btn')
         base.name_click('确定')
         sleep(1)
-        base.name_click('盘点')
+        base.id_click('com.facilityone.product.shang:id/inventory_save_btn')

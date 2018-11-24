@@ -2,10 +2,14 @@ from time import sleep
 import configparser
 import random
 from selenium.webdriver.support.wait import WebDriverWait
+
+from base import base
+
+
 class assigned():
     def __init__(self):
         pass
-    def assigned(self,base,inf):
+    def assigned(self,inf):
         try:
             base.name_click(u'待派工工单')
         except BaseException:
@@ -24,7 +28,7 @@ class assigned():
         print(no)
         return no
     #    派工
-    def assign(self,base):
+    def assign(self):
         sleep(3)
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
@@ -51,7 +55,7 @@ class assigned():
         base.id_sendkey('com.facilityone.product.shang:id/send_wo_content_et','派发内容测试'+str(i))
         base.name_click('派工')
     #     终止
-    def stop(self,base):
+    def stop(self):
         sleep(3)
         try:
             base.name_click('终止')
@@ -64,7 +68,7 @@ class assigned():
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et','终止原因'+str(i))
         base.name_click('终止')
     #     审批
-    def apply(self,base):
+    def apply(self):
         sleep(3)
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')

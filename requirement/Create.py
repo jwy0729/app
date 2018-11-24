@@ -2,12 +2,14 @@ import random
 from time import sleep
 from appium import webdriver
 import datetime
+
+from base import base
 from requirement.information import Information
 import configparser
 class create():
     def __init__(self):
         pass
-    def create(self,base):
+    def create(self):
         cp=configparser.SafeConfigParser()
         cp.read('base.ini',encoding='utf-8')
         try:
@@ -22,7 +24,6 @@ class create():
                 base.name_click(u'创建新需求')
         name=str(base.class_name_getattribute('android.widget.EditText',0))
         phone=str(base.class_name_getattribute('android.widget.EditText',1))
-        # self.driver=webdriver.Remote(url,dervice)
 
         if phone==""or phone is None:
             base.class_name_sendkey_number('android.widget.EditText',1,'15542835749')

@@ -1,10 +1,14 @@
 import random
 import configparser
 from time import sleep
+
+from base import base
+
+
 class StorageIn():
     def __init__(self):
         pass
-    def storageIn(self,base,material):
+    def storageIn(self,material):
         cp = configparser.SafeConfigParser()
         cp.read('base.ini', encoding='utf-8')
         try:

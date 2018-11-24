@@ -3,9 +3,11 @@ from base import Base
 from ReturnPage import Returnpage
 
 class EnergyMenu():
-    Energy = Energy()
-    Energy.energy(Base)
-    Energy.content(Base)
-    Energy.change(Base)
+    energy = Energy()
     Returnpage = Returnpage()
-    Returnpage.returnpage(Base)
+    def __init__(self):
+        EnergyMenu.energy.energy()
+        EnergyMenu.energy.content()
+        EnergyMenu.energy.change()
+        EnergyMenu.Returnpage.returnpage()
+
