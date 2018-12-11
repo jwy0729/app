@@ -1,6 +1,5 @@
 from base import base
 
-
 class Returnpage():
     def returnpage(self):
         try:

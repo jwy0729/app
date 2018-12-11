@@ -21,39 +21,47 @@ class Inspection():
                 base.name_click(u'查验任务')
             except BaseException:
                 base.name_click(u'工作')
+                sleep(1)
+                Inspection.DropDown.dropDown()
                 base.name_click(u'承接查验')
                 base.name_click(u'查验任务')
-        i=1
         for i in range(100):
             try:
                 base.name_click(cp.get('inspection','task'))
                 break
             except BaseException:
                 Inspection.DropDown.dropDown()
-                i=i+1
         base.name_click('开始查验')
         sleep(3)
-        n=1
-        l=len(base.class_name('android.widget.LinearLayout'))
-        for n in range(int(l)-1):
+        l=len(base.driver.find_elements_by_id('com.facilityone.product.shang:id/task_content_name'))
+        print(l)
+        for n in range(int(l)):
             try:
-                 base.class_name_click_number('android.widget.LinearLayout',n)
-                 Inspection.DropDown.dropDown()
-                 base.name_click('完成')
-                 try:
-                     base.id_click('com.facilityone.product.shang:id/confirm_button')
-                 except BaseException:
-                     print('无遗漏项')
-                 sleep(3)
-                 n=n+1
+                 base.id_click_number('com.facilityone.product.shang:id/task_content_name',int(n))
             except BaseException:
-                DropDown.dropDown()
+                Inspection.DropDown.dropDown()
+                base.id_click_number('com.facilityone.product.shang:id/task_content_name', int(n))
+            sleep(2)
+            Inspection.DropDown.dropDown()
+            sleep(1)
+            base.name_click('完成')
+            try:
+                base.id_click('com.facilityone.product.shang:id/confirm_button')
+            except BaseException:
+                print('无遗漏项')
+            sleep(3)
         try:
-            base.class_name('完成任务')
+            base.id_click('com.facilityone.product.shang:id/inspection_start_btn')
+            try:
+                base.id_click('com.facilityone.product.shang:id/confirm_button')
+            except BaseException:
+                print('无遗漏项')
         except BaseException:
             print('查验负责任不是'+cp.get('login','realname'))
+            Inspection.Returnpage.returnpage()
         sleep(2)
-        Returnpage.returnpage()
+        Inspection.Returnpage.returnpage()
+
 
 
 

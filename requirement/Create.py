@@ -1,8 +1,6 @@
 import random
 from time import sleep
-from appium import webdriver
 import datetime
-
 from base import base
 from requirement.information import Information
 import configparser
@@ -22,9 +20,8 @@ class create():
                 base.name_click(u'工作')
                 base.name_click(u'服务台')
                 base.name_click(u'创建新需求')
-        name=str(base.class_name_getattribute('android.widget.EditText',0))
-        phone=str(base.class_name_getattribute('android.widget.EditText',1))
-
+        name=str(base.id_text('com.facilityone.product.shang:id/demand_create_operator_et'))
+        phone=str(base.id_text('com.facilityone.product.shang:id/demand_create_operator_phone_et'))
         if phone==""or phone is None:
             base.class_name_sendkey_number('android.widget.EditText',1,'15542835749')
             phone='15542835749'

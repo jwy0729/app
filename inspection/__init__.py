@@ -2,7 +2,6 @@ from inspection.Inspection import Inspection
 from inspection.Validation import Validation
 from inspection.History import History
 from ReturnPage import Returnpage
-from base import Base
 
 class InspectionMenu():
     Inspection=Inspection()
@@ -10,7 +9,13 @@ class InspectionMenu():
     History=History()
     Returnpage=Returnpage()
     def __init__(self):
-        InspectionMenu.Inspection.inspection()
-        InspectionMenu.Validation.validation()
-        InspectionMenu.History.history()
-        InspectionMenu.Returnpage.returnpage()
+        try:
+            InspectionMenu.Inspection.inspection()
+            time=InspectionMenu.Validation.validation()
+            Y=time[0,4]
+            M=time[5:7]
+            InspectionMenu.Returnpage.returnpage()
+            InspectionMenu.History.history(2018,10)
+            InspectionMenu.Returnpage.returnpage()
+        except BaseException:
+            return 0

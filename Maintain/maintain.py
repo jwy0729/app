@@ -7,7 +7,7 @@ from time import sleep
 from base import base
 
 
-class maintain():
+class Maintain():
     DropDown = DropDown()
     ReturnPage=Returnpage()
     WipeUp=WipeUp()
@@ -15,32 +15,21 @@ class maintain():
     cp.read('base.ini', encoding='utf-8')
     def __init__(self):
         pass
-    def Asset(self):
+    def maintain(self):
         try:
             base.name_click(u'计划性维护')
         except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'计划性维护')
-        sleep(3)
-        # 左滑
-        view=base.calss_name_size('android.widget.LinearLayout')
-        h = int(view['height'])
-        w = int(int(view['width']) * 0.7)
-        w1=int(w-500)
-        w2=int(w+500)
-        base.driver.swipe(w,h,w1,h)
         sleep(5)
-        base.driver.swipe(w,h,w2,h)
-        base.driver.implicitly_wait(300)
-        maintain.DropDown.dropDown()
-        base.driver.implicitly_wait(0)
+        Maintain.DropDown.dropDown()
         try:
             base.class_name_click_number('android.widget.LinearLayout',1)
+            Maintain.DropDown.dropDown()
+            Maintain.ReturnPage.returnpage()
         except BaseException:
             print("无维护任务")
         sleep(2)
-        maintain.DropDown.dropDown()
-        maintain.ReturnPage.returnpage()
-        sleep(1)
-        WipeUp.wipeUp()
-        maintain.ReturnPage.returnpage()
+        Maintain.WipeUp.wipeUp()
+        sleep(2)
+        Maintain.ReturnPage.returnpage()

@@ -1,11 +1,12 @@
 from time import sleep
 import configparser
 import random
-
+from click import Click
 from base import base
 
 
 class uncompleted():
+    click=Click()
     def __init__(self):
         pass
     def uncompleted(self,no):
@@ -26,12 +27,12 @@ class uncompleted():
         base.name_click(no)
     def receive(self):
         base.driver.implicitly_wait(300)
-        base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+        uncompleted.click.click()
         base.driver.implicitly_wait(0)
         base.name_click('接单')
     def completed(self):
         base.driver.implicitly_wait(300)
-        base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+        uncompleted.click.click()
         base.driver.implicitly_wait(0)
         base.name_click('处理完成')
     def pausecon(self):
@@ -41,7 +42,7 @@ class uncompleted():
             base.name_click('暂停')
         except BaseException:
             base.driver.implicitly_wait(300)
-            base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+            uncompleted.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('暂停')
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et','暂停继续'+str(i))
@@ -49,7 +50,7 @@ class uncompleted():
     def con(self):
         sleep(3)
         base.driver.implicitly_wait(300)
-        base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+        uncompleted.click.click()
         base.driver.implicitly_wait(0)
         base.name_click('继续工作')
     def pausenotcon(self):
@@ -59,7 +60,7 @@ class uncompleted():
             base.name_click('暂停')
         except BaseException:
             base.driver.implicitly_wait(300)
-            base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+            uncompleted.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('暂停')
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et','暂停不继续'+str(i))
@@ -70,7 +71,7 @@ class uncompleted():
             base.name_click('终止')
         except BaseException:
             base.driver.implicitly_wait(300)
-            base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+            uncompleted.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('终止')
         i = random.randint(0, 1000)
@@ -82,7 +83,7 @@ class uncompleted():
             base.name_click('退单')
         except BaseException:
              base.driver.implicitly_wait(300)
-             base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+             uncompleted.click.click()
              base.driver.implicitly_wait(0)
              base.name_click('退单')
         i = random.randint(0, 1000)
@@ -97,7 +98,7 @@ class uncompleted():
             base.name_click('审批申请')
         except BaseException:
             base.driver.implicitly_wait(300)
-            base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+            uncompleted.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('审批申请')
         i = random.randint(0, 1000)

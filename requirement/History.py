@@ -1,9 +1,10 @@
 from time import sleep
-
+from ReturnPage import Returnpage
 from base import base
-
-
+from DropDown import DropDown
 class history():
+    Returnpage=Returnpage()
+    dropdown=DropDown()
     def __init__(self):
         pass
     def history(self,no):
@@ -18,9 +19,14 @@ class history():
                 base.name_click(u'服务台')
                 base.name_click(u'需求查询')
         sleep(2)
-        base.name_click(no)
+        for i in range(100):
+           try:
+              base.name_click(no)
+              break
+           except BaseException:
+               history.dropdown.dropDown()
         # 信息未验证
-        base.id_click('com.facilityone.product.shang:id/actionbar_back_ll')
+        Returnpage.returnpage()
         sleep(1)
-        base.id_click('com.facilityone.product.shang:id/actionbar_back_ll')
+        Returnpage.returnpage()
 

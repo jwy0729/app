@@ -26,8 +26,11 @@ class Query():
                 base.name_click(u'访客记录')
             except BaseException:
                 base.name_click(u'工作')
+                sleep(1)
+                Query.DropDown.dropDown()
                 base.name_click(u'访客管理')
                 base.name_click(u'访客记录')
         base.name_click(time)
-        Returnpage.returnpage()
-        Returnpage.returnpage()
+        sleep(2)
+        Query.Returnpage.returnpage()
+        Query.Returnpage.returnpage()

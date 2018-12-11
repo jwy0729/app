@@ -1,12 +1,19 @@
 from Affiche.Affiche import Affiche
 from ReturnPage import Returnpage
 from base import base
+from time import sleep
 class AfficheMenu():
     Returnpage = Returnpage()
-    Affiche=Affiche()
+    affiche=Affiche()
     def __init__(self):
-        affiche=AfficheMenu.Affiche()
-        title=affiche.Unread()
-        affiche.Read(title)
-        AfficheMenu.Returnpage.returnpage()
+        try:
+            title = AfficheMenu.affiche.Unread()
+            if title != '无未读公告':
+                AfficheMenu.affiche.Read(title)
+            else:
+                print('无未读公告')
+            sleep(1)
+            AfficheMenu.Returnpage.returnpage()
+        except BaseException:
+            return 0
 

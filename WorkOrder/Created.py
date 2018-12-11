@@ -2,11 +2,11 @@ from appium import webdriver
 from time import sleep
 import configparser
 import random
-
+from DropDown import DropDown
 from base import base
 
-
 class created():
+    DropDown=DropDown()
     def __init__(self):
         pass
     def created(self):
@@ -35,9 +35,9 @@ class created():
             base.name_click('确定')
         except BaseException:
             print('只有一级部门')
-        base.id_click('com.facilityone.product.shang:id/report_position_ll')
-        base.id_sendkey('com.facilityone.product.shang:id/search_edit_text',cp.get('workorder', 'location'))
         if source=='工单':
+            base.id_click('com.facilityone.product.shang:id/report_position_ll')
+            base.id_sendkey('com.facilityone.product.shang:id/search_edit_text', cp.get('workorder', 'location'))
             base.id_click('com.facilityone.product.shang:id/report_select_item_rl')
             try:
                 base.name_click('确定')
@@ -53,8 +53,10 @@ class created():
         base.id_click('com.facilityone.product.shang:id/report_priority_ll')
         base.id_click('com.facilityone.product.shang:id/report_select_item_rl')
         priority=base.id_text('com.facilityone.product.shang:id/edit_item_content_tv')
+        created.DropDown.dropDown()
         i=random.randint(0,1000)
-        base.name_sendkey('请输入内容','测试描述'+str(i))
+        if source=='工单':
+           base.name_sendkey('请输入内容','测试描述'+str(i))
         base.name_click('提交')
         if source=='工单':
            return '测试描述'+str(i)

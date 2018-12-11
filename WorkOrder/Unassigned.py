@@ -2,11 +2,12 @@ from time import sleep
 import configparser
 import random
 from selenium.webdriver.support.wait import WebDriverWait
-
+from click import Click
 from base import base
 
 
 class assigned():
+    click=Click()
     def __init__(self):
         pass
     def assigned(self,inf):
@@ -36,7 +37,7 @@ class assigned():
             base.name_click('派工')
         except BaseException:
             base.driver.implicitly_wait(300)
-            base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+            assigned.click.click()
             base.driver.implicitly_wait(0)
         # 设置预计时间
             base.name_click('派工')
@@ -61,7 +62,7 @@ class assigned():
             base.name_click('终止')
         except BaseException:
             base.driver.implicitly_wait(300)
-            base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+            assigned.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('终止')
         i = random.randint(0, 1000)
@@ -76,7 +77,7 @@ class assigned():
             base.name_click('审批申请')
         except BaseException:
             base.driver.implicitly_wait(300)
-            base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+            assigned.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('审批申请')
         i = random.randint(0, 1000)

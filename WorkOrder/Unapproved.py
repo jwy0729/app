@@ -1,11 +1,12 @@
 from time import sleep
 import configparser
 import random
-
+from click import Click
 from base import base
 
 
 class unapproved():
+    click=Click()
     def __init__(self):
         pass
     def unapproved(self,no):
@@ -30,7 +31,7 @@ class unapproved():
             base.name_click('审批')
         except BaseException:
             base.driver.implicitly_wait(300)
-            base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+            unapproved.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('审批')
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et','审批拒绝原因'+str(i))
@@ -42,7 +43,7 @@ class unapproved():
             base.name_click('审批')
         except BaseException:
             base.driver.implicitly_wait(300)
-            base.id_click('com.facilityone.product.shang:id/actionbar_right_handle_ll')
+            unapproved.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('审批')
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et', '审批通过原因' +str(i))

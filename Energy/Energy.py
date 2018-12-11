@@ -17,41 +17,41 @@ class Energy():
             base.name_click(u'能源管理')
     def content(self):
         sleep(2)
-        base.class_name_click(Energy.cp.get('energy','energy'))
-        len(base.class_name('android.widget.LinearLayout'))
-        i=1
-        for i in range(len):
+        for i in range(100):
             try:
-               base.class_name_click_number('android.widget.LinearLayout',int(i))
-               base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et',i)
-               base.name_click('保存')
-               i = i + 1
-               sleep(3)
+                base.name_click(Energy.cp.get('energy','energy'))
+                break
             except BaseException:
-                DropDown.dropDown()
-                base.class_name_click_number('android.widget.LinearLayout', int(i))
-                base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et', i)
-                base.name_click('保存')
+                Energy.DropDown.dropDown()
+        l=len(base.driver.find_elements_by_id('com.facilityone.product.shang:id/enery_task_detail_item_name_tv'))
+        i=1
+        for i in range(int(l)):
+            try:
+               base.id_click_number('com.facilityone.product.shang:id/enery_task_detail_item_name_tv',int(i))
+
+            except BaseException:
+                Energy.DropDown.dropDown()
+                base.id_click_number('com.facilityone.product.shang:id/enery_task_detail_item_name_tv', int(i))
+            base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et', i)
+            base.name_click('保存')
+            sleep(3)
         base.class_name_click_number('android.widget.LinearLayout',3)
     def change(self):
         sleep(2)
-        base.class_name_click(Energy.cp.get('energy', 'energy'))
-        l=len(base.driver.find_elements_by_class_name('android.widget.LinearLayout'))
+        base.name_click(Energy.cp.get('energy', 'energy'))
+        l=len(base.driver.find_elements_by_id('com.facilityone.product.shang:id/enery_task_detail_item_name_tv'))
         i = 1
-        for i in range(int(l)+2):
+        for i in range(int(l)):
             try:
-                base.class_name_click_number('android.widget.LinearLayout', i)
-                base.id_click('com.facilityone.product.shang:id/energy_write_change_sb')
-                base.id_click('com.facilityone.product.shang:id/confirm_button')
-                base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et', i)
-                base.name_click('保存')
+                base.id_click_number('com.facilityone.product.shang:id/enery_task_detail_item_name_tv', int(i))
             except BaseException:
-                DropDown.dropDown()
-                base.class_name_click_number('android.widget.LinearLayout', int(i))
-                base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et', i)
-                base.id_sendkey('com.facilityone.product.shang:id/energy_change_meter_multi_et',2)
-                base.id_sendkey('com.facilityone.product.shang:id/energy_change_meter_value_et',int(int(i)+1))
-                base.name_click('保存')
-            i = i + 1
+                Energy.DropDown.dropDown()
+                base.id_click_number('com.facilityone.product.shang:id/enery_task_detail_item_name_tv', int(i))
+            base.id_click('com.facilityone.product.shang:id/energy_write_change_sb')
+            base.id_click('com.facilityone.product.shang:id/confirm_button')
+            base.id_sendkey('com.facilityone.product.shang:id/enerty_write_taks_result_et', i)
+            base.id_sendkey('com.facilityone.product.shang:id/energy_change_meter_multi_et', 2)
+            base.id_sendkey('com.facilityone.product.shang:id/energy_change_meter_value_et', int(int(i) + 1))
+            base.name_click('保存')
         base.class_name_click_number('android.widget.LinearLayout', 3)
 

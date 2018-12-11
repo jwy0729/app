@@ -1,14 +1,16 @@
 from Knowledge.Project import Project
 from Knowledge.Company import Company
 from ReturnPage import Returnpage
-from base import Base
-
+from time import sleep
 class KnowledgeMenu():
-    Base=Base()
     Project = Project()
     Returnpage = Returnpage()
     Company=Company()
     def __init__(self):
-        KnowledgeMenu.Company.company()
-        KnowledgeMenu.Project.Project()
-        KnowledgeMenu.Returnpage.returnpage()
+        try:
+            KnowledgeMenu.Company.company()
+            KnowledgeMenu.Project.Project()
+            sleep(2)
+            KnowledgeMenu.Returnpage.returnpage()
+        except BaseException:
+            return 0

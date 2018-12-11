@@ -24,7 +24,7 @@ class base():
         return base.driver.find_element_by_id(loc)
     @staticmethod
     def id_click_number(loc,number):
-        base.driver.find_element_by_id(loc)[int(number)].click()
+        base.driver.find_elements_by_id(loc)[int(number)].click()
     @staticmethod
     def by_name(loc):
         return base.driver.find_element_by_name(loc)
@@ -78,6 +78,9 @@ class base():
         base.driver.find_elements_by_class_name(loc)[int(number)].send_keys(key)
     @staticmethod
     def id_text_number(loc,number):
-        return base.river.find_element_by_id(loc)[int(number)].text
+        return base.driver.find_element_by_id(loc)[int(number)].text
+    @staticmethod
+    def quit():
+        base.driver.quit()
 
 
