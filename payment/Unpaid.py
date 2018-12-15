@@ -35,6 +35,7 @@ class Unpaid():
                 Unpaid.DropDown.dropDown()
         Unpaid.click()
     def pay(self):
+        time=base.id_text('com.facilityone.product.shang:id/epayment_detail_create_time_tv')
         base.name_click('支付')
         base.name_click('线下支付(现金)')
         Unpaid.DropDown.dropDown()
@@ -49,9 +50,12 @@ class Unpaid():
         base.driver.implicitly_wait(300)
         base.name_click('确定')
         base.driver.implicitly_wait(0)
+        Unpaid.Returnpage.returnpage()
+        return time
     def invalid(self):
         base.name_click('作废')
         i=random.randint(0,1000)
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et','作废'+str(i))
         base.id_click('com.facilityone.product.shang:id/work_order_verify_sure_btn')
+        Unpaid.Returnpage.returnpage()
 

@@ -15,13 +15,19 @@ class Asset():
         pass
     def asset(self):
         try:
-            base.name_click(u'资产')
-        except BaseException:
+            try:
+                base.name_click(u'资产')
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'资产')
-        Asset.DropDown.dropDown()
+            Asset.DropDown.dropDown()
+        except BaseException:
+            return 0
     def rissue(self):
-        base.id_click('com.facilityone.product.shang:id/ll')
-        base.name_click('报障')
-        Asset.created.create('设备报障')
+        try:
+            base.id_click('com.facilityone.product.shang:id/ll')
+            base.name_click('报障')
+            Asset.created.create('设备报障')
+        except BaseException:
+            return 0
 

@@ -15,7 +15,7 @@ class InspectionMenu():
             Y=time[0,4]
             M=time[5:7]
             InspectionMenu.Returnpage.returnpage()
-            InspectionMenu.History.history(2018,10)
+            InspectionMenu.History.history(Y,M)
             InspectionMenu.Returnpage.returnpage()
         except BaseException:
             return 0

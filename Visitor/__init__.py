@@ -7,7 +7,10 @@ class VisitorMenu():
     Query = Query()
     Returnpage = Returnpage()
     def __init__(self):
-        time = VisitorMenu.Create.create()
-        VisitorMenu.Returnpage.returnpage()
-        VisitorMenu.Query.query(time)
-        VisitorMenu.Returnpage.returnpage()
+        try:
+            time = VisitorMenu.Create.create()
+            VisitorMenu.Returnpage.returnpage()
+            VisitorMenu.Query.query(time)
+            VisitorMenu.Returnpage.returnpage()
+        except BaseException:
+            return 0
