@@ -33,15 +33,14 @@ class Unpaid():
                 break
             except BaseException:
                 Unpaid.DropDown.dropDown()
-        Unpaid.click()
+        Unpaid.click.click()
     def pay(self):
-        time=base.id_text('com.facilityone.product.shang:id/epayment_detail_create_time_tv')
         base.name_click('支付')
         base.name_click('线下支付(现金)')
         Unpaid.DropDown.dropDown()
         i=random.randint(1,1000)
         base.id_sendkey('com.facilityone.product.shang:id/multi_input_content_et','缴费支付'+str(i))
-        base.driver.tap([102,1114],1)
+        base.driver.tap([(102,1114)],1)
         base.id_click('com.facilityone.product.shang:id/write_order_photo_tv')
         base.driver.implicitly_wait(300)
         base.id_click('com.facilityone.product.shang:id/cb_photo_lpsi')
@@ -51,7 +50,6 @@ class Unpaid():
         base.name_click('确定')
         base.driver.implicitly_wait(0)
         Unpaid.Returnpage.returnpage()
-        return time
     def invalid(self):
         base.name_click('作废')
         i=random.randint(0,1000)

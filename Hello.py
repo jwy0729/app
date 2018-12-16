@@ -16,6 +16,7 @@ from Maintain import MaintainMenu
 from Visitor import VisitorMenu
 from inspection import InspectionMenu
 from Knowledge import KnowledgeMenu
+from payment import paymentMenu
 login=login()
 login.login()
 a=login.login1()
@@ -48,9 +49,9 @@ DropDown.dropDown()
 # 访客
 # visitor=VisitorMenu()
 # 缴费
-
+payment=paymentMenu()
 # 知识库
 # knowledge=KnowledgeMenu()
 # 承接查验
-inspection=InspectionMenu()
+# inspection=InspectionMenu()
 base.quit()

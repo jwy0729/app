@@ -33,14 +33,15 @@ class Paid():
               break
            except BaseException:
                Paid.DropDown.dropDown()
+        time=base.id_text('com.facilityone.product.shang:id/epayment_detail_create_time_tv')
         Paid.Click.click()
+        return time
     def close(self):
         base.name_click('关闭')
         base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et','缴费关闭')
         base.id_click('com.facilityone.product.shang:id/work_order_verify_sure_btn')
 
     def refund(self):
-        time=base.id_text('com.facilityone.product.shang:id/epayment_detail_create_time_tv')
         base.name_click('退款')
         phone=base.id_text('com.facilityone.product.shang:id/edit_item_content_et')
         if phone==""or phone==None:
@@ -48,10 +49,9 @@ class Paid():
         Paid.DropDown.dropDown()
         Paid.DropDown.dropDown()
         base.id_sendkey('com.facilityone.product.shang:id/multi_input_content_et','退款')
-        base.driver.top([(103,1114)],1)
+        base.driver.tap([(102,1114)],1)
         base.name_click('从相册中选择')
         base.id_click('com.facilityone.product.shang:id/cb_photo_lpsi')
         base.name_click('确定')
         base.name_click('提交')
         Paid.Returnpage.returnpage()
-        return time
