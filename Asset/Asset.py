@@ -5,7 +5,8 @@ import configparser
 from time import sleep
 from base import base
 from WorkOrder.Created import created
-class Asset():
+import unittest
+class Asset(unittest.TestCase):
     DropDown = DropDown()
     ReturnPage=Returnpage()
     created=created()
@@ -21,13 +22,14 @@ class Asset():
                 base.name_click(u'工作')
                 base.name_click(u'资产')
             Asset.DropDown.dropDown()
+            base.id_click('com.facilityone.product.shang:id/ll')
         except BaseException:
-            return 0
+            self.assertEqual(0, 1, "资产模块，进入详情测试未通过")
     def rissue(self):
         try:
-            base.id_click('com.facilityone.product.shang:id/ll')
             base.name_click('报障')
             Asset.created.create('设备报障')
         except BaseException:
-            return 0
+            Asset.ReturnPage.returnpage()
+            self.assertEqual(0, 1, "资产模块，报障测试未通过")
 

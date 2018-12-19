@@ -4,7 +4,8 @@ import random
 from DropDown import DropDown
 from ReturnPage import Returnpage
 from click import Click
-class Management():
+import unittest
+class Management(unittest.TestCase):
     DropDown =DropDown()
     Returnpage=Returnpage()
     click=Click()
@@ -12,18 +13,21 @@ class Management():
         pass
     def management(self):
         try:
-            base.name_click(u'合同管理')
-        except BaseException:
             try:
                 base.name_click(u'合同管理')
-                base.name_click(u'合同管理')
             except BaseException:
-                base.name_click(u'工作')
-                sleep(1)
-                Management.DropDown.dropDown()
-                base.name_click(u'合同管理')
-                base.name_click(u'合同管理')
-        sleep(5)
+                try:
+                    base.name_click(u'合同管理')
+                    base.name_click(u'合同管理')
+                except BaseException:
+                    base.name_click(u'工作')
+                    sleep(1)
+                    Management.DropDown.dropDown()
+                    base.name_click(u'合同管理')
+                    base.name_click(u'合同管理')
+            sleep(5)
+        except BaseException:
+           self.assertEqual(0, 1, "合同管理模块，进入详情测试未通过")
     def activity(self,manage):
         for i in range(100):
             try:
@@ -41,7 +45,8 @@ class Management():
             base.id_click('com.facilityone.product.shang:id/inventory_pass_btn')
             Management.Returnpage.returnpage()
         except BaseException:
-            return 0
+            self.assertEqual(0, 1, "合同模块，终止测试未通过")
+
     #     恢复操作
     def recovery(self):
         try:
@@ -52,7 +57,7 @@ class Management():
             base.id_click('com.facilityone.product.shang:id/inventory_pass_btn')
             Management.Returnpage.returnpage()
         except BaseException:
-            return 0
+            self.assertEqual(0, 1, "合同模块，恢复测试未通过")
     # 存档操作
     def archive(self):
         try:
@@ -62,7 +67,7 @@ class Management():
             sleep(2)
             Management.Returnpage.returnpage()
         except BaseException:
-            return 0
+            self.assertEqual(0, 1, "合同模块，存档测试未通过")
     def acceptPass(self):
         try:
             Management.click.click()
@@ -74,7 +79,7 @@ class Management():
             base.name_click('通过')
             Management.Returnpage.returnpage()
         except BaseException:
-            return 0
+            self.assertEqual(0, 1, "合同模块，验收通过测试未通过")
     def acceptReject(self):
         try:
             Management.click.click()
@@ -86,6 +91,6 @@ class Management():
             base.name_click('不通过')
             Management.Returnpage.returnpage()
         except BaseException:
-            return 0
+            self.assertEqual(0, 1, "合同模块，验收不通过测试未通过")
 
 

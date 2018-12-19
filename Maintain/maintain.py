@@ -3,11 +3,10 @@ from ReturnPage import Returnpage
 import configparser
 from WipeUp import WipeUp
 from time import sleep
-
 from base import base
+import unittest
 
-
-class Maintain():
+class Maintain(unittest.TestSuite):
     DropDown = DropDown()
     ReturnPage=Returnpage()
     WipeUp=WipeUp()
@@ -17,19 +16,22 @@ class Maintain():
         pass
     def maintain(self):
         try:
-            base.name_click(u'计划性维护')
-        except BaseException:
+            try:
+                base.name_click(u'计划性维护')
+            except BaseException:
                 base.name_click(u'工作')
                 base.name_click(u'计划性维护')
-        sleep(5)
-        Maintain.DropDown.dropDown()
-        try:
-            base.class_name_click_number('android.widget.LinearLayout',1)
+            sleep(5)
             Maintain.DropDown.dropDown()
+            try:
+                base.class_name_click_number('android.widget.LinearLayout', 1)
+                Maintain.DropDown.dropDown()
+                Maintain.ReturnPage.returnpage()
+            except BaseException:
+                print("无维护任务")
+            sleep(2)
+            Maintain.WipeUp.wipeUp()
+            sleep(2)
             Maintain.ReturnPage.returnpage()
         except BaseException:
-            print("无维护任务")
-        sleep(2)
-        Maintain.WipeUp.wipeUp()
-        sleep(2)
-        Maintain.ReturnPage.returnpage()
+            self.assertEqual(0,1, "计划性维护模块，测试未通过")

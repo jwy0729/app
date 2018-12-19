@@ -9,15 +9,11 @@ class InspectionMenu():
     Returnpage = Returnpage()
     def __init__(self):
         # 巡检任务
-        try:
             InspectionMenu.InspectionTask.inspectionTask()
             sleep(3)
-            # 巡检查询
-            InspectionMenu.InspectionHistory.inspectionHistory()
             #       巡检报修
             InspectionMenu.InspectionHistory.Inspection()
-        except BaseException:
-            return 0
+
 
 
 

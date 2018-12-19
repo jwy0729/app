@@ -1,12 +1,12 @@
 from inspection.Inspection import Inspection
 from inspection.Validation import Validation
-from inspection.History import History
+from inspection.History import IHistory
 from ReturnPage import Returnpage
 
 class InspectionMenu():
     Inspection=Inspection()
     Validation=Validation()
-    History=History()
+    History=IHistory()
     Returnpage=Returnpage()
     def __init__(self):
         try:

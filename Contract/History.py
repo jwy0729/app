@@ -2,7 +2,8 @@ from time import sleep
 from base import base
 from DropDown import DropDown
 from ReturnPage import Returnpage
-class History():
+import unittest
+class History(unittest.TestCase):
     DropDown =DropDown()
     Returnpage=Returnpage()
     def __init__(self):
@@ -32,9 +33,13 @@ class History():
                     break
                 except BaseException:
                     base.id_click('com.facilityone.product.shang:id/history_pre_iv')
+            management1=获取下Management
             History.DropDown.dropDown()
             sleep(2)
             History.Returnpage.returnpage()
             History.Returnpage.returnpage()
+            self.assertEqual(management1, management, "合同查询模块，测试未通过")
         except BaseException:
-            return 0
+            self.assertEqual(0, 1, "合同查询模块，测试未通过")
+
+

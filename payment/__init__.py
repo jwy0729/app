@@ -15,32 +15,32 @@ class paymentMenu():
     RefundsQuery=RefundsQuery()
     def __init__(self):
         # 创建
-        # time=paymentMenu.Create.create()
-        time='2018-12-16 20:17'
-        # paymentMenu.Unpaid.unpaid(time)
+        time=paymentMenu.Create.create()
+        paymentMenu.Unpaid.unpaid(time)
         # 支付
-        # paymentMenu.Unpaid.pay()
+        paymentMenu.Unpaid.pay()
         a=time.split('-')
         i=a[0]
         j=a[1]
         Y=i[-4:]
         M=j
-        # paymentMenu.Returnpage.returnpage()
+        print(str(Y)+","+str(M))
+        paymentMenu.Returnpage.returnpage()
         # 关闭
-        # paymentMenu.Paid.paid()
-        # paymentMenu.Paid.close()
+        paymentMenu.Paid.paid()
+        paymentMenu.Paid.close()
         # 退款
         time2 =paymentMenu.Paid.paid()
         paymentMenu.Paid.refund()
         a1 = time2.split('-')
-        i1 = a[0]
+        i1 = a1[0]
         j1 = a[1]
-        Y1 = i[-4:]
-        M1 = j
+        Y1 = i1[-4 :]
+        M1 = j1
         paymentMenu.Returnpage.returnpage()
         # 退款单管理
         paymentMenu.Refunds.refunds()
-        paymentMenu.Returnpage.returnpage()
+        paymentMenu.Refunds.close()
         # 缴费单查询
         paymentMenu.PaymentQuery.query(Y,M)
         # 退款单查询
