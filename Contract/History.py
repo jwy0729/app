@@ -33,7 +33,7 @@ class History(unittest.TestCase):
                     break
                 except BaseException:
                     base.id_click('com.facilityone.product.shang:id/history_pre_iv')
-            management1=获取下Management
+            management1=base.id_text('com.facilityone.product.shang:id/tv_contract_code')
             History.DropDown.dropDown()
             sleep(2)
             History.Returnpage.returnpage()

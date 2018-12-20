@@ -5,7 +5,7 @@ from base import base
 from requirement.information import Information
 import configparser
 import unittest
-class create(unittest.TestSuite):
+class Created(unittest.TestSuite):
     def __init__(self):
         pass
     def create(self):

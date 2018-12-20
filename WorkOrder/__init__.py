@@ -1,27 +1,27 @@
 from Download import download
-from WorkOrder.Created import created
+from WorkOrder.Created import WCreated
 from ReturnPage import Returnpage
-from WorkOrder.Uncompleted import uncompleted
+from WorkOrder.Uncompleted import completed
 from WorkOrder.Unapproved import unapproved
 from WorkOrder.Unassigned import assigned
 from WorkOrder.Archive import archive
 from time import sleep
 from ReturnPage import Returnpage
-
+from WorkOrder.History import Whistory
 class WorkOrderMenu():
-   created = created()
+   created = WCreated()
    returnpage = Returnpage()
    assigned = assigned()
-   completed = uncompleted()
+   completed = completed()
    approved = unapproved()
    archive = archive()
-
+   history=Whistory()
    def __init__(self):
       try:
          # 工单
          # 创建工单
          WorkOrderMenu.created.created()
-         inf1 = created.create('工单')
+         inf1 = WorkOrderMenu.created.create('工单')
          # 派工
          workno = WorkOrderMenu.assigned.assigned(inf1)
          WorkOrderMenu.assigned.assign()
@@ -105,7 +105,8 @@ class WorkOrderMenu():
          WorkOrderMenu.archive.archive(workno)
          # 存档
          WorkOrderMenu.archive.Archive()
-
+         # 查询
+         WorkOrderMenu.history.history(workno)
          WorkOrderMenu.returnpage.returnpage()
       except BaseException:
          return 0

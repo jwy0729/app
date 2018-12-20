@@ -5,22 +5,25 @@ import random
 from DropDown import DropDown
 from base import base
 import unittest
-class created(unittest.TestSuite):
+class WCreated(unittest.TestSuite):
     DropDown=DropDown()
     def __init__(self):
         pass
     def created(self):
         try:
-            base.name_click(u'创建工单')
-        except BaseException:
             try:
-                base.name_click(u'工单')
                 base.name_click(u'创建工单')
             except BaseException:
-                base.name_click(u'工作')
-                base.name_click(u'工单')
-                base.name_click(u'创建工单')
-        sleep(2)
+                try:
+                    base.name_click(u'工单')
+                    base.name_click(u'创建工单')
+                except BaseException:
+                    base.name_click(u'工作')
+                    base.name_click(u'工单')
+                    base.name_click(u'创建工单')
+            sleep(2)
+        except BaseException:
+            self.assertEqual(0, 1, "工单创建模块，测试未通过")
     def create(self,source):
         try:
             cp = configparser.SafeConfigParser()
@@ -54,7 +57,7 @@ class created(unittest.TestSuite):
             base.id_click('com.facilityone.product.shang:id/report_priority_ll')
             base.id_click('com.facilityone.product.shang:id/report_select_item_rl')
             priority = base.id_text('com.facilityone.product.shang:id/edit_item_content_tv')
-            created.DropDown.dropDown()
+            WCreated.DropDown.dropDown()
             i = random.randint(0, 1000)
             if source == '工单':
                 base.name_sendkey('请输入内容', '测试描述' + str(i))

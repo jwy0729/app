@@ -4,12 +4,12 @@ import random
 import configparser
 from time import sleep
 from base import base
-from WorkOrder.Created import created
+from WorkOrder.Created import WCreated
 import unittest
 class Asset(unittest.TestCase):
     DropDown = DropDown()
     ReturnPage=Returnpage()
-    created=created()
+    created=WCreated()
     cp = configparser.SafeConfigParser()
     cp.read('base.ini', encoding='utf-8')
     def __init__(self):
@@ -30,6 +30,5 @@ class Asset(unittest.TestCase):
             base.name_click('报障')
             Asset.created.create('设备报障')
         except BaseException:
-            Asset.ReturnPage.returnpage()
             self.assertEqual(0, 1, "资产模块，报障测试未通过")
 

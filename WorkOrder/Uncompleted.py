@@ -5,7 +5,7 @@ from click import Click
 from base import base
 import unittest
 
-class uncompleted(unittest.TestSuite):
+class completed(unittest.TestSuite):
     click=Click()
     def __init__(self):
         pass
@@ -32,7 +32,7 @@ class uncompleted(unittest.TestSuite):
     def receive(self):
         try:
             base.driver.implicitly_wait(300)
-            uncompleted.click.click()
+            completed.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('接单')
         except BaseException:
@@ -40,7 +40,7 @@ class uncompleted(unittest.TestSuite):
     def completed(self):
         try:
             base.driver.implicitly_wait(300)
-            uncompleted.click.click()
+            completed.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('处理完成')
         except BaseException:
@@ -53,7 +53,7 @@ class uncompleted(unittest.TestSuite):
                 base.name_click('暂停')
             except BaseException:
                 base.driver.implicitly_wait(300)
-                uncompleted.click.click()
+                completed.click.click()
                 base.driver.implicitly_wait(0)
                 base.name_click('暂停')
             base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et', '暂停继续' + str(i))
@@ -64,7 +64,7 @@ class uncompleted(unittest.TestSuite):
         try:
             sleep(3)
             base.driver.implicitly_wait(300)
-            uncompleted.click.click()
+            completed.click.click()
             base.driver.implicitly_wait(0)
             base.name_click('继续工作')
         except BaseException:
@@ -77,7 +77,7 @@ class uncompleted(unittest.TestSuite):
                 base.name_click('暂停')
             except BaseException:
                 base.driver.implicitly_wait(300)
-                uncompleted.click.click()
+                completed.click.click()
                 base.driver.implicitly_wait(0)
                 base.name_click('暂停')
             base.id_sendkey('com.facilityone.product.shang:id/work_order_verify_content_et', '暂停不继续' + str(i))
@@ -91,7 +91,7 @@ class uncompleted(unittest.TestSuite):
                 base.name_click('终止')
             except BaseException:
                 base.driver.implicitly_wait(300)
-                uncompleted.click.click()
+                completed.click.click()
                 base.driver.implicitly_wait(0)
                 base.name_click('终止')
             i = random.randint(0, 1000)
@@ -107,7 +107,7 @@ class uncompleted(unittest.TestSuite):
                 base.name_click('退单')
             except BaseException:
                 base.driver.implicitly_wait(300)
-                uncompleted.click.click()
+                completed.click.click()
                 base.driver.implicitly_wait(0)
                 base.name_click('退单')
             i = random.randint(0, 1000)
@@ -125,7 +125,7 @@ class uncompleted(unittest.TestSuite):
                 base.name_click('审批申请')
             except BaseException:
                 base.driver.implicitly_wait(300)
-                uncompleted.click.click()
+                completed.click.click()
                 base.driver.implicitly_wait(0)
                 base.name_click('审批申请')
             i = random.randint(0, 1000)

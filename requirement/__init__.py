@@ -1,11 +1,11 @@
-from requirement.Create import create
+from requirement.Create import Created
 from requirement.History import history
 from requirement.Uncompleted import uncompleted
 from requirement.Unevaluated import unevaluated
 from ReturnPage import Returnpage
 from requirement.Unapproved import Unapproved
 class RequirmentMenu():
-    create = create()
+    create = Created()
     uncompleted = uncompleted()
     history = history()
     evaluated = unevaluated()

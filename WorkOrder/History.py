@@ -2,8 +2,9 @@ from time import sleep
 import configparser
 from base import base
 import unittest
-
-class history(unittest.TestSuite):
+import ReturnPage
+class Whistory(unittest.TestSuite):
+    ReturnPage=ReturnPage()
     def __init__(self):
         pass
     def history(self,no):
@@ -24,6 +25,8 @@ class history(unittest.TestSuite):
             base.id_sendkey('com.facilityone.product.shang:id/work_order_code', no)
             base.name_click('确定')
             base.id_click('com.facilityone.product.shang:id/work_order_query_rl')
+            sleep(2)
+            Whistory.ReturnPage.returnpage()
         except BaseException:
             self.assertEqual(0, 1, "工单查询模块，测试未通过")
 

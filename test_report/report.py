@@ -28,20 +28,20 @@ from payment.PaymentQuery import PaymentQuery
 from payment.Refunds import Refunds
 from payment.RefundsQuery import RefundsQuery
 from payment.Unpaid import Unpaid
-from requirement.Create import create
+from requirement.Create import Created
 from requirement.History import history
 from requirement.Unapproved import Unapproved
 from requirement.Uncompleted import uncompleted
 from requirement.Unevaluated import unevaluated
-from Visitor.Create import Create
+from Visitor.Create import VCreate
 from Visitor.Query import Query
 from WorkOrder.Archive import archive
-from WorkOrder.Created import created
-from WorkOrder.History import history
+from WorkOrder.Created import WCreated
+from WorkOrder.History import Whistory
 from WorkOrder.Unapproved import unapproved
 from WorkOrder.Unassigned import assigned
-from WorkOrder.Uncompleted import uncompleted
-from DropDown import DropDown
+from WorkOrder.Uncompleted import completed
+from Download import download
 from Login import login
 from Project import project
 # 设置报告文件保存路径
@@ -85,7 +85,61 @@ def suite():
     suite.addTest(Unapproved("unapproved"))
     suite.addTest(Unapproved("Pass"))
     suite.addTest(Unapproved("Reject"))
-
+    suite.addTest(Company("company"))
+    suite.addTest(Project("Project"))
+    suite.addTest(Maintain("maintain"))
+    suite.addTest(InspectionHistory("InspectionHistorey"))
+    suite.addTest(InspectionTask("inspectionTask"))
+    suite.addTest(Create("create"))
+    suite.addTest(Paid("paid"))
+    suite.addTest(Paid("close"))
+    suite.addTest(Paid("refund"))
+    suite.addTest(PaymentQuery("query"))
+    suite.addTest(Refunds("refunds"))
+    suite.addTests(Refunds('close'))
+    suite.addTests(RefundsQuery('close'))
+    suite.addTests(RefundsQuery('query'))
+    suite.addTests(Unpaid('unpaid'))
+    suite.addTests(Unpaid('pay'))
+    suite.addTests(Unpaid('invalid'))
+    suite.addTests(Created('create'))
+    suite.addTests(history('history'))
+    suite.addTests(Unapproved('unapproved'))
+    suite.addTests(Unapproved('Pass'))
+    suite.addTests(Unapproved('refuse'))
+    suite.addTests(uncompleted('uncompleted'))
+    suite.addTests(uncompleted('wo'))
+    suite.addTests(uncompleted('save'))
+    suite.addTests(uncompleted('complete'))
+    suite.addTests(unevaluated('unevaluated'))
+    suite.addTests(VCreate('create'))
+    suite.addTests(Query('query'))
+    suite.addTests(archive('archive'))
+    suite.addTests(archive('verifyT'))
+    suite.addTests(archive('verifyF'))
+    suite.addTests(WCreated('created'))
+    suite.addTests(WCreated('create'))
+    suite.addTests(WCreated('created'))
+    suite.addTests(unapproved('unapproved'))
+    suite.addTests(unapproved('refuse'))
+    suite.addTests(unapproved('Pass'))
+    suite.addTests(assigned('assigned'))
+    suite.addTests(assigned('assign'))
+    suite.addTests(assigned('stop'))
+    suite.addTests(assigned('apply'))
+    suite.addTests(completed('uncompleted'))
+    suite.addTests(completed('receive'))
+    suite.addTests(completed('completed'))
+    suite.addTests(completed('pausecon'))
+    suite.addTests(completed('con'))
+    suite.addTests(completed('pausenotcon'))
+    suite.addTests(completed('stop'))
+    suite.addTests(completed('Return'))
+    suite.addTests(completed('apply'))
+    suite.addTests(download('download'))
+    suite.addTests(completed('apply'))
+    suite.addTests(login('login1'))
+    suite.addTests(project('project'))
     return suite
 
 if __name__ == '__main__':

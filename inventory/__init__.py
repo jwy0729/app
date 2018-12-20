@@ -7,7 +7,7 @@ from inventory.StorageOut import StorageOut
 from inventory.StorageMove import StorageMove
 from inventory.StorageCheck import StorageCheck
 from ReturnPage import Returnpage
-
+from base import base
 class InventoryMenu():
     create1 = create()
     IN = StorageIn()
@@ -19,30 +19,154 @@ class InventoryMenu():
     StorageCheck = StorageCheck()
     Returnpage=Returnpage()
     def __init__(self):
+        try:
         # 创建物资
-        material = InventoryMenu.create1.create()
+            material = InventoryMenu.create1.create()
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
         # 入库
-        InventoryMenu.IN.storageIn(material)
+        try:
+            InventoryMenu.IN.storageIn(material)
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
         # 物资预定
-        InventoryMenu.Reserve.reserve(material)
+        try:
+           InventoryMenu.Reserve.reserve(material)
+        except BaseException:
+           for i in range(10):
+               try:
+                   name = base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                   if name == '库存管理':
+                       break
+                   else:
+                       InventoryMenu.Returnpage.returnpage()
+               except BaseException:
+                   InventoryMenu.Returnpage.returnpage()
         # 我的预定
-        materialNo = InventoryMenu.MyReserved.MyReserved()
+        try:
+            materialNo = InventoryMenu.MyReserved.MyReserved()
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
         # 物资审核(通过)
-        InventoryMenu.Unapproved.unapproved(materialNo)
-        InventoryMenu.Unapproved.Pass()
+        try:
+           InventoryMenu.Unapproved.unapproved(materialNo)
+           InventoryMenu.Unapproved.Pass()
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
         # 预定出库
-        InventoryMenu.StorageOut.StorageOut()
-        InventoryMenu.StorageOut.reserved(materialNo)
-        InventoryMenu.StorageOut.delivery()
+        try:
+            InventoryMenu.StorageOut.StorageOut()
+            InventoryMenu.StorageOut.reserved(materialNo)
+            InventoryMenu.StorageOut.delivery()
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
         # 直接出库
-        InventoryMenu.StorageOut.StorageOut()
-        InventoryMenu.StorageOut.direct(material)
+        try:
+           InventoryMenu.StorageOut.StorageOut()
+           InventoryMenu.StorageOut.direct(material)
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
         # 移库
-        InventoryMenu.StorageMove.StorageMove(material)
+        try:
+           InventoryMenu.StorageMove.StorageMove(material)
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
         # 盘点
-        InventoryMenu.StorageCheck.StorageCheck(material)
-        InventoryMenu.Returnpage.returnpage()
+        try:
+            InventoryMenu.StorageCheck.StorageCheck(material)
+            InventoryMenu.Returnpage.returnpage()
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
         # 物资预定
-        InventoryMenu.Reserve.reserve(material)
-        # 预定取消
-        InventoryMenu.MyReserved.cancellation()
+        try:
+           InventoryMenu.Reserve.reserve(material)
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
+        try:
+            # 预定取消
+            InventoryMenu.MyReserved.cancellation()
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
+        InventoryMenu.Returnpage.returnpage()
+
+

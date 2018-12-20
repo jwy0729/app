@@ -38,6 +38,16 @@ class MyReserved(unittest.TestSuite):
 
     def cancellation(self):
         try:
+            base.name_click(u'我的预定')
+        except BaseException:
+            try:
+                base.name_click(u'库存')
+                base.name_click(u'我的预定')
+            except BaseException:
+                base.name_click(u'工作')
+                base.name_click(u'库存')
+                base.name_click(u'我的预定')
+        try:
             base.driver.implicitly_wait(300)
             base.driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/cn.bingoogolapple.swipebacklayout.BGASwipeBackLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[1]').click()
             base.driver.implicitly_wait(0)

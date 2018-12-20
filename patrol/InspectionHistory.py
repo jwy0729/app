@@ -4,15 +4,15 @@ import configparser
 from base import base
 from DropDown import DropDown
 from ReturnPage import Returnpage
-from WorkOrder.Created import created
+from WorkOrder.Created import WCreated
 import unittest
 class InspectionHistory(unittest.TestSuite):
     DropDown =DropDown()
     Returnpage=Returnpage()
-    create=created()
+    create=WCreated()
     def __init__(self):
         pass
-    def Inspection(self):
+    def InspectionHistorey(self):
         try:
             cp = configparser.SafeConfigParser()
             cp.read('base.ini', encoding='utf-8')
@@ -57,5 +57,9 @@ class InspectionHistory(unittest.TestSuite):
                 InspectionHistory.DropDown.dropDown()
             base.name_click('报修')
             InspectionHistory.create.create('巡检')
+            sleep(5)
+            InspectionHistory.Returnpage.returnpage()
+            InspectionHistory.Returnpage.returnpage()
+            InspectionHistory.Returnpage.returnpage()
         except BaseException:
             self.assertEqual(0,1, "巡检查询模块，报修测试未通过")
