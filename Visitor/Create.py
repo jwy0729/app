@@ -14,7 +14,7 @@ class VCreate(unittest.TestSuite):
     DropDown=DropDown()
     Returnpage=Returnpage()
     def __init__(self):
-        pass
+        super().__init__()
     def create(self):
         try:
             try:

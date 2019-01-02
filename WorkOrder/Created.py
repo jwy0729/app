@@ -8,7 +8,7 @@ import unittest
 class WCreated(unittest.TestSuite):
     DropDown=DropDown()
     def __init__(self):
-        pass
+        super().__init__()
     def created(self):
         try:
             try:

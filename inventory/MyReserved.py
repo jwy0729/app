@@ -5,10 +5,10 @@ from ReturnPage import Returnpage
 from base import base
 import unittest
 
-class MyReserved(unittest.TestSuite):
+class MyReserved(unittest.TestCase):
     returnpage=Returnpage()
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def MyReserved(self):
         try:
             cp = configparser.SafeConfigParser()

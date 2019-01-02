@@ -6,12 +6,12 @@ from time import sleep
 from base import base
 import unittest
 
-class StorageOut(unittest.TestSuite):
+class StorageOut(unittest.TestCase):
     DropDown=DropDown()
     returnpage=Returnpage()
     i=random.randint(0,10000)
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def StorageOut(self,base):
         try:
             base.name_click(u'出库')

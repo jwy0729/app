@@ -2,19 +2,19 @@ from appium import webdriver
 from time import sleep
 import random
 import configparser
-from WorkOrder.Created import created
 from base import base
 from ReturnPage import Returnpage
 from click import Click
 from DropDown import DropDown
 import unittest
+from WorkOrder.Created import WCreated
 class uncompleted(unittest.TestSuite):
-    woCreate=created()
+    woCreate=WCreated()
     Returnpage=Returnpage()
     dropdown=DropDown()
     click=Click()
     def __init__(self):
-        pass
+        super().__init__()
     def uncompleted(self,inf):
         try:
             try:

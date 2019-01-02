@@ -8,11 +8,11 @@ from datetime import datetime
 from base import base
 import unittest
 
-class IHistory(unittest.TestSuite):
+class IHistory(unittest.TestCase):
     DropDown=DropDown()
     Returnpage=Returnpage()
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def history(self,Y,M):
         try:
             cp = configparser.SafeConfigParser()
@@ -49,8 +49,7 @@ class IHistory(unittest.TestSuite):
                 except BaseException:
                     IHistory.DropDown.dropDown()
             sleep(2)
-            task=获取下
-            self.assertEqual(task, cp.get('inspection', 'htask'), "查验查询模块，测试未通过")
+            self.assertEqual(0,1, "查验查询模块，测试未通过")
             IHistory.DropDown.dropDown()
             IHistory.Returnpage.returnpage()
             IHistory.Returnpage.returnpage()

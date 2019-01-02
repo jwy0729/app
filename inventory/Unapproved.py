@@ -5,11 +5,11 @@ from ReturnPage import Returnpage
 from base import base
 import unittest
 
-class Unapproved(unittest.TestSuite):
+class Unapproved(unittest.TestCase):
     returnpage=Returnpage()
     i=random.randint(0,10000)
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def unapproved(self,no):
         try:
             cp = configparser.SafeConfigParser()
@@ -31,7 +31,7 @@ class Unapproved(unittest.TestSuite):
         except BaseException:
             self.assertEqual(0,1, "库存审核模块，测试未通过")
 
-    def Pass(self,):
+    def Pass(self):
         try:
             base.id_sendkey('com.facilityone.product.shang:id/adjust_inventory_batch_num_et','通过'+str(Unapproved.i))
             base.name_click('通过')

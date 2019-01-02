@@ -8,6 +8,7 @@ from inventory.StorageMove import StorageMove
 from inventory.StorageCheck import StorageCheck
 from ReturnPage import Returnpage
 from base import base
+from inventory.History import VHistory
 class InventoryMenu():
     create1 = create()
     IN = StorageIn()
@@ -18,6 +19,7 @@ class InventoryMenu():
     StorageMove = StorageMove()
     StorageCheck = StorageCheck()
     Returnpage=Returnpage()
+    History=VHistory()
     def __init__(self):
         try:
         # 创建物资
@@ -157,6 +159,19 @@ class InventoryMenu():
         try:
             # 预定取消
             InventoryMenu.MyReserved.cancellation()
+        except BaseException:
+            for i in range(10):
+                try:
+                    name=base.id_text('com.facilityone.product.shang:id/actionbar_title_fullscreen_tv')
+                    if name=='库存管理':
+                       break
+                    else:
+                        InventoryMenu.Returnpage.returnpage()
+                except BaseException:
+                    InventoryMenu.Returnpage.returnpage()
+        try:
+            # 库存查询
+            InventoryMenu.History.history(material)
         except BaseException:
             for i in range(10):
                 try:

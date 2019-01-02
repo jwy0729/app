@@ -5,10 +5,10 @@ from DropDown import DropDown
 from base import base
 import unittest
 
-class create(unittest.TestSuite):
+class create(unittest.TestCase):
     DropDown=DropDown()
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def create(self):
         try:
             cp = configparser.SafeConfigParser()

@@ -5,10 +5,10 @@ from time import sleep
 from base import base
 import unittest
 
-class StorageCheck(unittest.TestSuite):
+class StorageCheck(unittest.TestCase):
     DropDown = DropDown()
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def StorageCheck(self,material):
         try:
             cp = configparser.SafeConfigParser()

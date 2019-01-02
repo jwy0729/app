@@ -2,10 +2,9 @@ from Login import login
 from time import sleep
 from Project import project
 from Download import download
-from base import base
 from DropDown import DropDown
 from inventory import InventoryMenu
-from patrol import InspectionMenu
+from patrol import PatrolMenu
 from Contract import ContractMenu
 from Affiche import AfficheMenu
 from requirement import RequirmentMenu
@@ -28,30 +27,30 @@ dow=download()
 dow.download()
 DropDown=DropDown()
 # 公告
-# affiche=AfficheMenu()
-# 巡检
-# inspection=InspectionMenu()
-# 服务台
+affiche=AfficheMenu()
+# # 巡检
+# inspection=PatrolMenu()
+# # 服务台
 # requirment=RequirmentMenu()
-# 工单(未走)
+# # 工单(未走)
 # wordorder=WorkOrderMenu()
-# 计划性维护
+# # 计划性维护
 # maintain=MaintainMenu()
-# 资产
+# # 资产
 # asset=AssetMenu()
-# 能源管理
+# # 能源管理
 # energy=EnergyMenu()
-# 物资
+# # 物资
 # inventory=InventoryMenu()
-DropDown.dropDown()
-# 合同
+# DropDown.dropDown()
+# # 合同
 # contract=ContractMenu()
-# 访客
+# # 访客
 # visitor=VisitorMenu()
-# 缴费
-payment=paymentMenu()
-# 知识库
+# # 缴费
+# payment=paymentMenu()
+# # 知识库
 # knowledge=KnowledgeMenu()
-# 承接查验
+# # 承接查验
 # inspection=InspectionMenu()
-base.quit()
+# base.quit()

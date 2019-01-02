@@ -6,8 +6,8 @@ import unittest
 class History(unittest.TestCase):
     DropDown =DropDown()
     Returnpage=Returnpage()
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def history(self,management):
         try:
             try:

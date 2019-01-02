@@ -6,11 +6,11 @@ from DropDown import DropDown
 from base import base
 import configparser
 import unittest
-class Inspection(unittest.TestSuite):
+class Inspection(unittest.TestCase):
     DropDown=DropDown()
     Returnpage=Returnpage()
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def inspection(self):
         try:
             cp = configparser.SafeConfigParser()

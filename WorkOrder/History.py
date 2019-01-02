@@ -4,9 +4,8 @@ from base import base
 import unittest
 import ReturnPage
 class Whistory(unittest.TestSuite):
-    ReturnPage=ReturnPage()
     def __init__(self):
-        pass
+        super().__init__()
     def history(self,no):
         try:
             cp = configparser.SafeConfigParser()

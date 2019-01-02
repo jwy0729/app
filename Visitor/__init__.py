@@ -3,7 +3,7 @@ from ReturnPage import Returnpage
 from Visitor.Query import Query
 
 class VisitorMenu():
-    Create=Create()
+    Create=VCreate()
     Query = Query()
     Returnpage = Returnpage()
     def __init__(self):

@@ -5,10 +5,10 @@ from time import sleep
 from base import base
 import unittest
 
-class Reserve(unittest.TestSuite):
+class Reserve(unittest.TestCase):
     DropDown = DropDown()
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def reserve(self,material):
         try:
             cp = configparser.SafeConfigParser()

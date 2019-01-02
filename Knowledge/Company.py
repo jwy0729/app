@@ -38,11 +38,9 @@ class Company(unittest.TestSuite):
                 except BaseException:
                     Company.DropDown.dropDown()
             sleep(2)
-            companyFile=获取下
-            self.assertEqual(companyFile,cp.get('knowledge', 'CompanyFile'), "知识库模块，公司级测试未通过")
             Company.Returnpage.returnpage()
             Company.Returnpage.returnpage()
             Company.Returnpage.returnpage()
         except BaseException:
-            self.assertEqual(companyFile,cp.get('knowledge', 'CompanyFile'), "知识库模块，公司级测试未通过")
+            self.assertEqual(0,1, "知识库模块，公司级测试未通过")
 

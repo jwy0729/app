@@ -1,6 +1,6 @@
 from appium import webdriver
 class base():
-    driver=None
+    global driver
     @staticmethod
     def start(url,dervice):
         base.driver=webdriver.Remote(url,dervice)

@@ -5,9 +5,9 @@ from time import sleep
 from base import base
 import unittest
 
-class StorageIn(unittest.TestSuite):
-    def __init__(self):
-        pass
+class StorageIn(unittest.TestCase):
+    # def __init__(self):
+    #     pass
     def storageIn(self,material):
         try:
             cp = configparser.SafeConfigParser()

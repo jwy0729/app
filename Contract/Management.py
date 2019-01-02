@@ -9,8 +9,8 @@ class Management(unittest.TestCase):
     DropDown =DropDown()
     Returnpage=Returnpage()
     click=Click()
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def management(self):
         try:
             try:

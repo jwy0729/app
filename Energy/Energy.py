@@ -4,21 +4,18 @@ from DropDown import DropDown
 from base import base
 import configparser
 import unittest
-class Energy(unittest.TestSuite):
+class Energy(unittest.TestCase):
     cp=configparser.SafeConfigParser()
     cp.read('base.ini',encoding='utf-8')
     DropDown=DropDown()
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
     def energy(self):
         try:
-            try:
-                base.name_click(u'能源管理')
-            except BaseException:
-                base.name_click(u'工作')
-                base.name_click(u'能源管理')
+            base.name_click(u'能源管理')
         except BaseException:
-            self.assertEqual(0, 1, "能源模块，测试未通过")
+            base.name_click(u'工作')
+            base.name_click(u'能源管理')
     def content(self):
         try:
             sleep(2)
@@ -42,7 +39,7 @@ class Energy(unittest.TestSuite):
                 sleep(3)
             base.class_name_click_number('android.widget.LinearLayout', 3)
         except BaseException:
-            self.assertEqual(0, 1, "能源模块，抄表测试未通过")
+            self.assertEqual(0,1,"能源模块，抄表测试未通过")
     def change(self):
         try:
             sleep(2)
@@ -63,6 +60,6 @@ class Energy(unittest.TestSuite):
                 base.name_click('保存')
             base.class_name_click_number('android.widget.LinearLayout', 3)
         except BaseException:
-            self.assertEqual(0, 1, "能源模块，换表测试未通过")
+            self.assertEqual(0,1, "能源模块，换表测试未通过")
 
 

@@ -12,8 +12,8 @@ class Asset(unittest.TestCase):
     created=WCreated()
     cp = configparser.SafeConfigParser()
     cp.read('base.ini', encoding='utf-8')
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     super().__init__()
     def asset(self):
         try:
             try:

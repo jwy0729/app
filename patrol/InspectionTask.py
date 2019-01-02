@@ -12,7 +12,7 @@ class InspectionTask(unittest.TestSuite):
     def inspectionTask(self):
          try:
              cp = configparser.SafeConfigParser()
-             cp.read('base.ini', encoding='utf-8')
+             cp.read('E:\\app\\base.ini', encoding='utf-8')
              try:
                  # base.driver.implicitly_wait(10)
                  base.name_click(u'巡检任务')

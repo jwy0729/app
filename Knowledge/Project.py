@@ -38,10 +38,8 @@ class Project(unittest.TestSuite):
                 except BaseException:
                     Project.DropDown.dropDown()
             sleep(2)
-            ProjectFile=获取下
-            self.assertEqual(ProjectFile,cp.get('knowledge', 'ProjectFile'), "知识库模块，公司级测试未通过")
             Project.Returnpage.returnpage()
             Project.Returnpage.returnpage()
             Project.Returnpage.returnpage()
         except BaseException:
-            self.assertEqual(ProjectFile,cp.get('knowledge', 'ProjectFile'), "知识库模块，公司级测试未通过")
+            self.assertEqual(0,1, "知识库模块，公司级测试未通过")
